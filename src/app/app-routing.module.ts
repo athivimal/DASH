@@ -19,25 +19,29 @@ import { AddUserComponent } from "./add-user/add-user.component";
 
 const appRoutes: Routes = [
   {
-    path: "",
-    component: MqttDashComponent
-  },
-  {
-    path: "espdash",
-    component: EspDashComponent
-  },
-  {
-    path: "espmeter",
-    component: EspMeterComponent
-  },
-  {
-    path: "users",
-    component: UsersComponent
-  },
-  {
-    path: "add-user",
-    component: AddUserComponent
+    path: '',
+    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
   }
+  // {
+  //   path: "",
+  //   component: MqttDashComponent
+  // },
+  // {
+  //   path: "espdash",
+  //   component: EspDashComponent
+  // },
+  // {
+  //   path: "espmeter",
+  //   component: EspMeterComponent
+  // },
+  // {
+  //   path: "users",
+  //   component: UsersComponent
+  // },
+  // {
+  //   path: "add-user",
+  //   component: AddUserComponent
+  // }
   // {
   //   path: "ciet/home",
   //   component: HomeComponent,

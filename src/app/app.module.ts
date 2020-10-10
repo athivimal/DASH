@@ -1,3 +1,6 @@
+import { PagesRoutingModule } from './pages/pages-routing.module';
+import { PagesModule } from './pages/pages.module';
+import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -42,6 +45,7 @@ import { UsersComponent } from "./users/users.component";
 import { AddUserComponent } from "./add-user/add-user.component";
 
 import { GaugeChartModule } from "angular-gauge-chart";
+
 
 // cloud mqtt broker free
 // https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
@@ -102,6 +106,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     NgxGaugeModule,
     GaugeChartModule,
     FormsModule,
+    SharedModule,
+    PagesModule,
+    PagesRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })

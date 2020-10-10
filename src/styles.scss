@@ -12,10 +12,15 @@ app-navbar {
   z-index: 2;
 }
 
-body {
-  margin: 0px;
+.text-danger {
+  font-size: 10px;
+  color: red;
 }
 
-.nav-item {
-  margin: 10px !important;
+.primary-btn {
+  height: 40px;
+  padding: 0 20px;
+  background-color: black;
+  color: white;
+  border: none;
 }
