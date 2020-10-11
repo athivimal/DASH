@@ -4,6 +4,8 @@
             <h1 class="company-name mb-0">KRISH TEC</h1>
             <nav class="nav-group" [ngClass]="{'d-block': menuToggle}">
                 <a *ngFor="let header of headerData" class="nav-items" [ngClass]="{'active' : header.link === activeLink}" (click)="routeToPage(header)">{{header.title}}</a>
+                <a *ngIf="!isLogoutEnable" class="nav-items" [ngClass]="{'active' : '/login' === activeLink}" (click)="routeToPage({title: 'Log in', link: '/login'})">Log in</a>
+                <a *ngIf="isLogoutEnable" class="nav-items" (click)="logout()">Log out</a>
             </nav>
             <div class="menu d-block d-md-none">
                 <button class="menu-button" (click)="menuDisplay()" [ngClass]="menuToggle ? 'd-none' : 'd-block'">

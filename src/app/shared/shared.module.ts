@@ -1,3 +1,4 @@
+import { Users } from './config/users';
 import { RouterModule } from '@angular/router';
 import { HeaderList } from './config/header-list';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,6 @@ import { HeaderComponent } from './components/header/header.component';
   exports: [
     HeaderComponent
   ],
-  providers: [ HeaderList ]
+  providers: [ HeaderList, Users ]
 })
 export class SharedModule { }

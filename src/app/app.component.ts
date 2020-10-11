@@ -8,22 +8,24 @@ import { Subscription } from "rxjs/Subscription";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  user = { name: "" };
+  // user = { name: "" };
+  user: any;
   subscription: Subscription;
 
   constructor(public auth: AuthService) {
-    let sess = localStorage.getItem("currentUser");
-    if (sess) {
-      // console.log(sess)
-      this.user = JSON.parse(sess);
-    }
+    // let sess = localStorage.getItem("currentUser");
+    // if (sess) {
+    //   // console.log(sess)
+    //   // this.user = JSON.parse(sess);
+    //   this.user = sess;
+    // }
   }
 
   ngOnInit() {
-    this.subscription = this.auth.user.subscribe(user => {
-      this.user = user;
-      // console.log(user);
-    });
+    // this.subscription = this.auth.user.subscribe(user => {
+    //   this.user = user;
+    //   // console.log(user);
+    // });
   }
 
   logOut() {

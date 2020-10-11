@@ -15,10 +15,6 @@ export class HeaderList {
         {
             title: 'Contact',
             link: '/contact-us'
-        },
-        {
-            title: 'Login',
-            link: '/login'
         }
     ]
 }

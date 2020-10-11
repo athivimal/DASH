@@ -1,3 +1,5 @@
+import { AuthenticationService } from './../../auth-services/authentication.service';
+import { Users } from './../../shared/config/users';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,12 +20,14 @@ export class LoginFlowComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    public users: Users,
+    private authenticationService: AuthenticationService
     // private authenticationService : AuthenticationService
   ) { }
    
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', Validators.required]
     });
   }
@@ -39,15 +43,16 @@ export class LoginFlowComponent implements OnInit {
     }
    
     this.loading = true;
-    // this.authenticationService.login(this.fval.email.value, this.fval.password.value)
-    // .subscribe(
-    //   data => {
-    //   this.router.navigate(['../']);
-    // },
-    // error => {
-    // // this.toastr.error(error.error.message, 'Error');
-    //   this.loading = false;
-    // });
+    this.authenticationService.login(this.fval.username.value, this.fval.password.value)
+    .subscribe(
+      data => {
+      // this.router.navigate(['../']);
+      console.log(data,"Login?")
+    },
+    error => {
+    // this.toastr.error(error.error.message, 'Error');
+      this.loading = false;
+    });
   }
 
 }

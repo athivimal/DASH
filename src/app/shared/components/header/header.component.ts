@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../../auth-services/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HeaderList } from './../../config/header-list';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +12,9 @@ export class HeaderComponent implements OnInit {
   headerData: any;
   menuToggle: any;
   activeLink = '';
+  isLogoutEnable = false;
 
-  constructor(public headerContents: HeaderList, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) { 
+  constructor(public headerContents: HeaderList, private router: Router, private activatedRoute: ActivatedRoute, private location: Location, private authService: AuthenticationService) { 
     this.headerData = headerContents.contents;
   }
 
@@ -24,6 +26,18 @@ export class HeaderComponent implements OnInit {
     else {
       this.activeLink = '/home';
     }
+    this.loginCheck();
+  }
+
+  loginCheck() {
+    this.authService.currentUser.subscribe(data => {
+      if (data) {
+        this.isLogoutEnable = true;
+      }
+      else {
+        this.isLogoutEnable = false;
+      }
+    })
   }
 
   menuDisplay() {
@@ -40,6 +54,10 @@ export class HeaderComponent implements OnInit {
       relativeTo: this.activatedRoute
     });
     this.menuToggle = false;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
