@@ -1,5 +1,4 @@
-import { PagesRoutingModule } from './pages/pages-routing.module';
-import { PagesModule } from './pages/pages.module';
+import { AddUserComponent } from './add-user/add-user.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -42,7 +41,6 @@ import { LoraMapComponent } from "./lora-map/lora-map.component";
 
 import { AgmCoreModule } from "@agm/core";
 import { UsersComponent } from "./users/users.component";
-import { AddUserComponent } from "./add-user/add-user.component";
 
 import { GaugeChartModule } from "angular-gauge-chart";
 
@@ -107,8 +105,6 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     GaugeChartModule,
     FormsModule,
     SharedModule,
-    PagesModule,
-    PagesRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })

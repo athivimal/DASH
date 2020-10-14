@@ -28,6 +28,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginFlowComponent
   },
+  
   {
     path: '',
     redirectTo: '/home',

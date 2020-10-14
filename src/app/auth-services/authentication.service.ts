@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
-  public currentUser: Observable<User>;
+  public currentUser: Observable<any>;
   userList: any;
   
   constructor(private http: HttpClient, public users: Users) {
@@ -18,7 +18,7 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
   
-  public get currentUserValue(): User {
+  public get currentUserValue(): any {
     return this.currentUserSubject.value;
   }
  

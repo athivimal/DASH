@@ -1,8 +1,6 @@
+import { Router } from '@angular/router';
 import { AuthenticationService } from './../../../auth-services/authentication.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HeaderList } from './../../config/header-list';
 import { Component, OnInit } from '@angular/core';
-import { Location } from "@angular/common";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,30 +11,20 @@ export class HeaderComponent implements OnInit {
   menuToggle: any;
   activeLink = '';
   isLogoutEnable = false;
+  activeUser: any;
 
-  constructor(public headerContents: HeaderList, private router: Router, private activatedRoute: ActivatedRoute, private location: Location, private authService: AuthenticationService) { 
-    this.headerData = headerContents.contents;
-  }
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.location.path(),"path")
-    if (this.location.path()) {
-      this.activeLink = this.location.path();
+    this.activeUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!this.activeUser) {
+      this.loginCheck();
     }
-    else {
-      this.activeLink = '/home';
-    }
-    this.loginCheck();
   }
 
   loginCheck() {
     this.authService.currentUser.subscribe(data => {
-      if (data) {
-        this.isLogoutEnable = true;
-      }
-      else {
-        this.isLogoutEnable = false;
-      }
+      this.activeUser = data;
     })
   }
 
@@ -48,16 +36,18 @@ export class HeaderComponent implements OnInit {
     this.menuToggle = false;
   }
 
-  routeToPage(navigation) {
-    this.activeLink = navigation.link;
-    this.router.navigate([navigation.link], {
-      relativeTo: this.activatedRoute
-    });
-    this.menuToggle = false;
-  }
+  // routeToPage(navigation) {
+  //   this.activeLink = navigation.link;
+  //   this.router.navigate([navigation.link], {
+  //     relativeTo: this.activatedRoute
+  //   });
+  //   this.menuToggle = false;
+  // }
 
   logout() {
+    this.loginCheck();
     this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
