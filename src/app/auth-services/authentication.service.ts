@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
  
   login(username: string, password: string) {
-    let user = this.userList.filter(user => {
+    let user = this.userList.find(user => {
       if(user.username === username && user.password === password) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);

@@ -1,10 +1,45 @@
 <section class="max-width-container">
     <div class="user-list-container">
-        <h3>Welcome {{userData?.username}} ! You are our Admin and you can able to add new user.</h3>
-        <div>
+        <h3 class="text-center mb-3">Welcome {{userData?.username}} ! You are our Admin and you can able to add new user.</h3>
+        <div class="d-flex justify-content-end mb-3">
             <button class="primary-btn" (click)="addUser()">
                 Add user
             </button>
         </div>
-    </div>
+        <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource" (scroll)="onTableScroll($event)">
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="device">
+                <mat-header-cell *matHeaderCellDef> Device </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.device}} </mat-cell>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="input">
+                <mat-header-cell *matHeaderCellDef> Input </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.input}} </mat-cell>
+              </ng-container>
+          
+              <!-- Symbol Column -->
+              <!-- <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+              </ng-container> -->
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns; let i= index" (click)="selectedRow(row)"
+              [ngClass]="{'highlightTableColor': selectedRowIndex == i}"></mat-row>
+            </mat-table>
+        </div>   
+    </div>     
 </section>

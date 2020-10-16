@@ -1,3 +1,4 @@
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'user/:id',
-        component: UserListComponent
+        component: UserDetailsComponent
       },
       {
         path: 'add-user',

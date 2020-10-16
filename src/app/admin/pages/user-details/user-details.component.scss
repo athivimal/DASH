@@ -1,0 +1,6 @@
+.user-details-container {
+    padding: 40px 20px;
+    @media only screen and (max-width: 560px) {
+        padding: 40px 10px;
+    }
+}

@@ -1,3 +1,4 @@
+import { AdminService } from './../../services/admin.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,36 +12,67 @@ export class AddUserComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
+  returnUrl: string;
+  user: any;
+  model = {user: {}};
+  deviceList = ['Ammeter', 'Voltmeter', 'esp meter']
+  constructor(private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private adminService: AdminService) { }
+   
+  ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phone: ['', Validators.required],
+      username: ['', [Validators.required]],
+      contact: ['', [Validators.required, Validators.pattern(new RegExp('[0-9]{10}')), Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', Validators.required],
+      device: ['', Validators.required],
+      input: ['', Validators.required]
     });
+    this.adminService.selectedUser.subscribe(data => {
+      if(data) {
+        this.user = data;
+        this.model.user = data;
+        this.registerForm.setValue({
+          username: this.user.username,
+          contact: this.user.contact,
+          email: this.user.email,
+          password: this.user.password,
+          device: this.user.device,
+          input: this.user.input
+        })
+      }
+    })
   }
-
+   
+  // for accessing to form fields
   get fval() { return this.registerForm.controls; }
-
-  onFormSubmit(){
+   
+  onFormSubmit() {
+    this.model.user['username'] = this.registerForm.value.username;
+    this.model.user['contact'] = this.registerForm.value.contact;
+    this.model.user['email'] = this.registerForm.value.email;
+    this.model.user['password'] = this.registerForm.value.password;
+    this.model.user['device'] = this.registerForm.value.device;
+    this.model.user['input'] = this.registerForm.value.input;
     this.submitted = true;
-    // return for here if form is invalid
     if (this.registerForm.invalid) {
+      console.log("invalid", this.registerForm.controls)
       return;
     }
+
+    this.router.navigate(['../userlist'],{
+      relativeTo: this.activatedRoute
+    });
+   
     this.loading = true;
-    // this.userService.register(this.registerForm.value).subscribe(
-    //   (data)=>{
-    //   alert('User Registered successfully!!');
-    //   this.router.navigate(['/login']);
+    // this.authenticationService.login(this.fval.username.value, this.fval.password.value)
+    // .subscribe(
+    //   data => {
+    //   // this.router.navigate(['../']);
+    //   console.log(data,"Login?")
     // },
-    // (error)=>{
+    // error => {
     // // this.toastr.error(error.error.message, 'Error');
     //   this.loading = false;
-    // })
+    // });
   }
-
 }
