@@ -22,6 +22,7 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.adminService.setSelectedUser(null);
     this.dataSource = this.users.userList;
     this.dataSource = this.getTableData(this.start, this.end);
     this.updateIndex();

@@ -1,3 +1,4 @@
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
@@ -14,7 +15,16 @@ const routes: Routes = [
       },
       {
         path: 'user/:id',
-        component: UserDetailsComponent
+        children: [
+          {
+            path: '',
+            component: UserDetailsComponent
+          },
+          {
+            path: 'edit-user',
+            component: EditUserComponent
+          }
+        ]
       },
       {
         path: 'add-user',

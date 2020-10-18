@@ -19,51 +19,16 @@ export class AddUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private adminService: AdminService) { }
    
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
-      contact: ['', [Validators.required, Validators.pattern(new RegExp('[0-9]{10}')), Validators.minLength(10), Validators.maxLength(10)]],
-      email: ['', [Validators.required,Validators.email]],
-      password: ['', Validators.required],
-      device: ['', Validators.required],
-      input: ['', Validators.required]
-    });
-    this.adminService.selectedUser.subscribe(data => {
-      if(data) {
-        this.user = data;
-        this.model.user = data;
-        this.registerForm.setValue({
-          username: this.user.username,
-          contact: this.user.contact,
-          email: this.user.email,
-          password: this.user.password,
-          device: this.user.device,
-          input: this.user.input
-        })
-      }
+  }
+
+  registerUser(user) {
+    this.router.navigate(['../'], {
+      relativeTo: this.activatedRoute
     })
   }
    
   // for accessing to form fields
-  get fval() { return this.registerForm.controls; }
-   
-  onFormSubmit() {
-    this.model.user['username'] = this.registerForm.value.username;
-    this.model.user['contact'] = this.registerForm.value.contact;
-    this.model.user['email'] = this.registerForm.value.email;
-    this.model.user['password'] = this.registerForm.value.password;
-    this.model.user['device'] = this.registerForm.value.device;
-    this.model.user['input'] = this.registerForm.value.input;
-    this.submitted = true;
-    if (this.registerForm.invalid) {
-      console.log("invalid", this.registerForm.controls)
-      return;
-    }
-
-    this.router.navigate(['../userlist'],{
-      relativeTo: this.activatedRoute
-    });
-   
-    this.loading = true;
+  
     // this.authenticationService.login(this.fval.username.value, this.fval.password.value)
     // .subscribe(
     //   data => {
@@ -74,5 +39,4 @@ export class AddUserComponent implements OnInit {
     // // this.toastr.error(error.error.message, 'Error');
     //   this.loading = false;
     // });
-  }
 }

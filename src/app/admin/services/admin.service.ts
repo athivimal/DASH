@@ -10,6 +10,7 @@ export class AdminService {
   constructor() { }
 
   setSelectedUser(user) {
+    localStorage.setItem('selectedUser',JSON.stringify(user));
     this.selectedUser$.next(user);
   }
 }
