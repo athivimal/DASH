@@ -16,7 +16,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   deleteUser() {
-    this.router.navigate(['../../userlist'],{
+    this.router.navigate(['../../../userlist'],{
       relativeTo: this.activatedRoute
     })
   }
