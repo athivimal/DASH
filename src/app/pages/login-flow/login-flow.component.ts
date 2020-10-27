@@ -46,7 +46,7 @@ export class LoginFlowComponent implements OnInit {
     this.authenticationService.login(this.fval.username.value, this.fval.password.value)
     .subscribe(
       data => {
-      // this.router.navigate(['../']);
+      this.router.navigate(['../user']);
       console.log(data,"Login?")
     },
     error => {

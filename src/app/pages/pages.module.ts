@@ -8,10 +8,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
-
+import { UserDevicesComponent } from './user-devices/user-devices.component';
 
 @NgModule({
-  declarations: [LoginFlowComponent, AboutUsComponent, ContactUsComponent, LandingPageComponent, ProductsComponent],
+  declarations: [LoginFlowComponent, AboutUsComponent, ContactUsComponent, LandingPageComponent, ProductsComponent, UserDevicesComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

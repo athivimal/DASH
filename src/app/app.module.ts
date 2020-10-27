@@ -109,6 +109,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
       enabled: environment.production
     })
   ],
+  exports: [EspMeterComponent],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [DoveSnackbarComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl,FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AdminService } from '../../services/admin.service';
+// import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-register-form',
@@ -18,15 +18,19 @@ export class RegisterFormComponent implements OnInit {
   returnUrl: string;
   model = {user: {}};
   deviceList = ['Ammeter', 'Voltmeter', 'esp meter']
+  charts=['Simple pie chart','stacked column chart','Micro Charts','Gantt Charts','Step Line Chart']
+
   constructor(private formBuilder: FormBuilder) { }
    
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       contact: ['', [Validators.required, Validators.pattern(new RegExp('[0-9]{10}')), Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required,Validators.email]],
       password: ['', Validators.required],
       device: ['', Validators.required],
+      charts: this.formBuilder.array([],[Validators.required, Validators.maxLength(3)]),
       input: ['', Validators.required]
     });
       if(this.user) {
@@ -44,7 +48,21 @@ export class RegisterFormComponent implements OnInit {
    
   // for accessing to form fields
   get fval() { return this.registerForm.controls; }
-   
+  onCheckboxChange(e) {
+    const charts: FormArray = (<FormArray>this.registerForm.get('charts') )
+    if (e.target.checked) {
+      charts.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      charts.controls.forEach((item) => {
+        if (item.value == e.target.value) {
+          charts.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+  }
   onFormSubmit() {
     this.model.user['username'] = this.registerForm.value.username;
     this.model.user['contact'] = this.registerForm.value.contact;

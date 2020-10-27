@@ -33,10 +33,10 @@ const appRoutes: Routes = [
     path: "espdash",
     component: EspDashComponent
   },
-  {
-    path: "espmeter",
-    component: EspMeterComponent
-  },
+  // {
+  //   path: "espmeter",
+  //   component: EspMeterComponent
+  // },
   {
     path: "users",
     component: UsersComponent

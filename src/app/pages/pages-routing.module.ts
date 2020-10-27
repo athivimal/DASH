@@ -1,4 +1,4 @@
-import { ProductsComponent } from './products/products.component';
+import { UserDevicesComponent } from './user-devices/user-devices.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -9,20 +9,8 @@ import { AuthGuard } from '../helpers/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: LandingPageComponent
-  },
-  {
-    path: 'about-us',
-    component: AboutUsComponent
-  },
-  {
-    path: 'contact-us',
-    component: ContactUsComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent , canActivate: [AuthGuard]
+    path: 'user',
+    component: UserDevicesComponent , canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -31,7 +19,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/user',
     pathMatch: 'full'
   }
 ];

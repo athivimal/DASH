@@ -1,12 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { IMqttMessage, MqttService } from "ngx-mqtt";
+import { IMqttMessage, MqttService } from 'ngx-mqtt';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-esp-meter",
-  templateUrl: "./esp-meter.component.html",
-  styleUrls: ["./esp-meter.component.scss"]
+  selector: 'app-user-devices',
+  templateUrl: './user-devices.component.html',
+  styleUrls: ['./user-devices.component.scss']
 })
-export class EspMeterComponent implements OnInit {
+export class UserDevicesComponent implements OnInit {
+
   public message: string;
   incoming;
   duplicate = false;
@@ -80,4 +81,5 @@ export class EspMeterComponent implements OnInit {
   }
 
   ngOnInit() {}
+
 }
