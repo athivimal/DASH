@@ -23,6 +23,7 @@ export class RegisterFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
    
   ngOnInit() {
+    console.log(this.user,"usssusususu")
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       name: ['', [Validators.required]],
@@ -34,13 +35,16 @@ export class RegisterFormComponent implements OnInit {
       input: ['', Validators.required]
     });
       if(this.user) {
+        console.log(this.user);
         this.model.user = this.user;
         this.registerForm.setValue({
           username: this.user.username,
+          name: this.user.name,
           contact: this.user.contact,
           email: this.user.email,
           password: this.user.password,
           device: this.user.device,
+          charts: this.user.chart,
           input: this.user.input
         })
       }

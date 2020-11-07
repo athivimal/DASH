@@ -1,7 +1,10 @@
 <div class="max-width-container user-details-container">
-    <div class="d-flex justify-content-end">
-        <button class="primary-btn" routerLink="edit-user">Edit</button>
-        <button class="secondary-btn ml-2" (click)="deleteUser()">Delete User</button>
+    <div class="d-flex justify-content-between">
+        <button (click)="back()">Back</button>
+        <div class="d-flex justify-content-end">
+            <button class="primary-btn" routerLink="edit-user">Edit</button>
+            <button class="secondary-btn ml-2" (click)="deleteUser()">Delete User</button>
+        </div>
     </div>
     <app-user-card [user]="selectedUser"></app-user-card>
     <div class="user-card"></div>

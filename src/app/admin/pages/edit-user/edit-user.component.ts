@@ -12,6 +12,7 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
+    console.log(this.selectedUser,"huhuhu")
   }
 
   editUser(user) {
