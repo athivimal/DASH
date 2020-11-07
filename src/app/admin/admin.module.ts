@@ -9,7 +9,6 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
-
 @NgModule({
   declarations: [UserListComponent, UserDetailsComponent, AddUserComponent, RegisterFormComponent, EditUserComponent],
   imports: [

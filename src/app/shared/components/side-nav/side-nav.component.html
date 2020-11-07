@@ -1,0 +1,5 @@
+<div class="side-nav d-none d-md-block" (scroll)="onScroll($event)">
+    <ul class="side-nav__menu">
+        <li class="side-nav__menu-items" [routerLinkActive]="['active']"*ngFor="let member of members"><a class="side-nav__menu-content" (click)="onNavClick(member)">{{member}}</a></li>
+    </ul>
+</div>

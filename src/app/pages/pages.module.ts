@@ -9,14 +9,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { UserDevicesComponent } from './user-devices/user-devices.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [LoginFlowComponent, AboutUsComponent, ContactUsComponent, LandingPageComponent, ProductsComponent, UserDevicesComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class PagesModule { }

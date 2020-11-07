@@ -25,7 +25,7 @@ export class PictorialSliceShapeComponent implements OnInit, AfterViewInit {
     let value = this.value;
     let circleSize = 0.8;
 
-    let component = am4core.create(`chartdiv${this.name}`, am4core.Container)
+    let component = am4core.create(`chartpictorialSlice${this.name}`, am4core.Container)
     component.width = am4core.percent(100);
     component.height = am4core.percent(100);
 

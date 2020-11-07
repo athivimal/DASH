@@ -20,7 +20,7 @@ export class AnimatedGaugeBlueComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
     // Create chart
-    let chart = am4core.create(`chartdiv${this.name}`, am4charts.GaugeChart);
+    let chart = am4core.create(`chartanimatedBlue${this.name}`, am4charts.GaugeChart);
     // configure series
     // Create axis
     let axis = chart.xAxes.push(new am4charts.ValueAxis<am4charts.AxisRendererCircular>()); 

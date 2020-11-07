@@ -1,5 +1,6 @@
 import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-devices',
@@ -38,7 +39,7 @@ export class UserDevicesComponent implements OnInit {
   // mosquitto_sub -h broker.hivemq.com -p 1883 -t "kt-data/#" -v
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-control -m '1'
 
-  constructor(private _mqttService: MqttService) {
+  constructor(private _mqttService: MqttService,private router: Router, private activatedRoute: ActivatedRoute ) {
     this._mqttService
       .observe("kt-data/#")
       .subscribe((message: IMqttMessage) => {
@@ -82,4 +83,9 @@ export class UserDevicesComponent implements OnInit {
 
   ngOnInit() {}
 
+  routeTabs(device){
+    this.router.navigate([device], {
+      relativeTo: this.activatedRoute
+    })
+  }
 }

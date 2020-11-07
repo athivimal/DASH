@@ -9,14 +9,16 @@ import { AnimatedGaugeComponent } from './components/animated-gauge/animated-gau
 import { PictorialSliceShapeComponent } from './components/pictorial-slice-shape/pictorial-slice-shape.component';
 import { PictorialChartComponent } from './components/pictorial-chart/pictorial-chart.component';
 import { AnimatedGaugeBlueComponent } from './components/animated-gauge-blue/animated-gauge-blue.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+
 
 @NgModule({
-  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent],
+  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent],
   imports: [
     CommonModule, RouterModule
   ],
   exports: [
-    HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent
+    HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent
   ],
   providers: [ HeaderList, Users ]
 })

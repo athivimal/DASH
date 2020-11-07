@@ -22,7 +22,7 @@ export class AnimatedGaugeComponent implements OnInit {
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
     // Create chart
-    let chart = am4core.create(`chartdiv${this.name}`, am4charts.GaugeChart);
+    let chart = am4core.create(`chartanimated${this.name}`, am4charts.GaugeChart);
     // configure series
     // Create axis
     let axis = chart.xAxes.push(new am4charts.ValueAxis<am4charts.AxisRendererCircular>()); 
@@ -80,5 +80,4 @@ export class AnimatedGaugeComponent implements OnInit {
   // hand2.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
 // }, 2000);
   }
-  ngOnDestroy() { this.chart.dispose(); }
 }

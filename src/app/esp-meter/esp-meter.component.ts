@@ -14,6 +14,9 @@ export class EspMeterComponent implements OnInit {
   mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 90, pin:2, count:3}];
   
   i = 0;
+  espmeterCharts=['Animated Gauge','Pictorial Slice Shape','Pictorial Chart','Animated Gauge Blue']
+ selectedChart:string
+ menuToggle=false;
 
   public canvasWidth = 300;
   public needleValue = 5;
@@ -79,5 +82,15 @@ export class EspMeterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedChart=this.espmeterCharts[0];
+  }
+
+  dropdownToggle(chartName){
+    this.selectedChart=chartName ? chartName:this.selectedChart
+    this.menuToggle=!this.menuToggle
+  }
+  onTabChange(event) {
+    this.selectedChart=event.nextId
+  }
 }

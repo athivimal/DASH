@@ -1,8 +1,9 @@
+import { EspMeterComponent } from './../esp-meter/esp-meter.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -18,7 +19,13 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: UserDetailsComponent
+            component: UserDetailsComponent,
+            children: [
+              {
+                path: '',
+                component: EspMeterComponent
+              }
+            ]
           },
           {
             path: 'edit-user',
