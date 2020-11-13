@@ -40,25 +40,41 @@
         <ng-container *ngTemplateOutlet="AnimatedGaugeBlue"></ng-container>
       </ng-container>
       <ng-template #AnimatedGauge>
-        <app-animated-gauge [value]="50" [name]="'chart'"></app-animated-gauge>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+            <app-animated-gauge [value]="tx.value" [name]="tx.node"></app-animated-gauge>
+          </div>
+        </div>
       </ng-template>
       <ng-template #PictorialSliceShape>
-        <app-pictorial-slice-shape
-          [value]="50"
-          [name]="'chart'"
-        ></app-pictorial-slice-shape>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+            <app-pictorial-slice-shape
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-pictorial-slice-shape>
+          </div>
+        </div>
       </ng-template>
       <ng-template #PictorialChart>
-        <app-pictorial-chart
-          [value]="50"
-          [name]="'chart'"
-        ></app-pictorial-chart>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+            <app-pictorial-chart
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-pictorial-chart>
+          </div>
+        </div>
       </ng-template>
       <ng-template #AnimatedGaugeBlue>
-        <app-animated-gauge-blue
-          [value]="50"
-          [name]="'chart'"
-        ></app-animated-gauge-blue>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+            <app-animated-gauge-blue
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-animated-gauge-blue>
+          </div>
+        </div>
       </ng-template>
       <!-- <div [ngSwitch]="selectedChart">
        <app-animated-gauge *ngSwitchCase="'Animated Gauge'"[value]="50" [name]="'chart'"></app-animated-gauge>
