@@ -27,16 +27,16 @@
       <a>{{ chart }}</a>
     </ng-template>
     <ng-template ngbTabContent>
-      <ng-container *ngIf="selectedChart === 'Animated Gauge'">
+      <ng-container *ngIf="selectedChart === 'Animated gauge'">
         <ng-container *ngTemplateOutlet="AnimatedGauge"></ng-container>
       </ng-container>
-      <ng-container *ngIf="selectedChart === 'Pictorial Slice Shape'">
+      <ng-container *ngIf="selectedChart === 'Pictorial slice shape'">
         <ng-container *ngTemplateOutlet="PictorialSliceShape"></ng-container>
       </ng-container>
-      <ng-container *ngIf="selectedChart === 'Pictorial Chart'">
+      <ng-container *ngIf="selectedChart === 'Pictorial chart'">
         <ng-container *ngTemplateOutlet="PictorialChart"></ng-container>
       </ng-container>
-      <ng-container *ngIf="selectedChart === 'Animated Gauge Blue'">
+      <ng-container *ngIf="selectedChart === 'Animated gauge blue'">
         <ng-container *ngTemplateOutlet="AnimatedGaugeBlue"></ng-container>
       </ng-container>
       <ng-template #AnimatedGauge>

@@ -16,8 +16,7 @@ export class AnimatedGaugeComponent implements OnInit {
 
   constructor() {}
   ngOnInit(): void {
-    
-
+    console.log("hello")
   }
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
