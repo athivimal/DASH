@@ -29,4 +29,9 @@ export class UserDetailsComponent implements OnInit {
       relativeTo: this.activatedRoute
     });
   }
+  routeTabs(device){
+    this.router.navigate([device], {
+      relativeTo: this.activatedRoute
+    })
+  }
 }

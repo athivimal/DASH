@@ -5,6 +5,8 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AmmeterComponent } from '../ammeter/ammeter.component';
+import { VoltmeterComponent } from '../voltmeter/voltmeter.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,19 @@ const routes: Routes = [
               {
                 path: '',
                 component: EspMeterComponent
-              }
+              },
+              {
+                path: 'Ammeter',
+                component: AmmeterComponent,
+              },
+              {
+                path: 'Voltmeter',
+                component: VoltmeterComponent,
+              },
+              {
+                path: 'Espmeter',
+                component: EspMeterComponent,
+              },
             ]
           },
           {
