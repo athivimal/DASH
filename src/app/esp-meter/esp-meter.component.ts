@@ -15,8 +15,8 @@ export class EspMeterComponent implements OnInit {
   
   i = 0;
   espmeterCharts=[];
- selectedChart:string
- menuToggle=false;
+  selectedChart:string
+  menuToggle=false;
   userData: any;
   selectedUser: any;
 

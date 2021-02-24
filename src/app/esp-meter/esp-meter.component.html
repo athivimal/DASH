@@ -48,7 +48,7 @@
       </ng-template>
       <ng-template #PictorialSliceShape>
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
             <app-pictorial-slice-shape
               [value]="tx.value"
               [name]="tx.node"
@@ -58,7 +58,7 @@
       </ng-template>
       <ng-template #PictorialChart>
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
             <app-pictorial-chart
               [value]="tx.value"
               [name]="tx.node"
@@ -68,7 +68,7 @@
       </ng-template>
       <ng-template #AnimatedGaugeBlue>
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
             <app-animated-gauge-blue
               [value]="tx.value"
               [name]="tx.node"
@@ -109,30 +109,30 @@
     </div>
   </div>
   <ng-container *ngIf="selectedChart === 'Animated Gauge'">
-    <ng-container *ngTemplateOutlet="Animated; gauge"></ng-container>
+    <ng-container *ngTemplateOutlet="AnimatedGauge"></ng-container>
   </ng-container>
   <ng-container *ngIf="selectedChart === 'Pictorial Slice Shape'">
-    <ng-container *ngTemplateOutlet="Pictorial; slice: Shape"></ng-container>
+    <ng-container *ngTemplateOutlet="PictorialSliceShape"></ng-container>
   </ng-container>
   <ng-container *ngIf="selectedChart === 'Pictorial Chart'">
-    <ng-container *ngTemplateOutlet="Pictorial; chart"></ng-container>
+    <ng-container *ngTemplateOutlet="PictorialChart"></ng-container>
   </ng-container>
   <ng-container *ngIf="selectedChart === 'Animated Gauge Blue'">
-    <ng-container *ngTemplateOutlet="Animated; gauge: Blue"></ng-container>
+    <ng-container *ngTemplateOutlet="AnimatedGaugeBlue"></ng-container>
   </ng-container>
-  <ng-template #Animated Gauge>
+  <ng-template #AnimatedGauge>
     <app-animated-gauge [value]="50" [name]="'chart'"></app-animated-gauge>
   </ng-template>
-  <ng-template #Pictorial Slice Shape>
+  <ng-template #PictorialSliceShape>
     <app-pictorial-slice-shape
       [value]="50"
       [name]="'chart'"
     ></app-pictorial-slice-shape>
   </ng-template>
-  <ng-template #Pictorial Chart>
+  <ng-template #PictorialChart>
     <app-pictorial-chart [value]="50" [name]="'chart'"></app-pictorial-chart>
   </ng-template>
-  <ng-template #Animated Gauge Blue>
+  <ng-template #AnimatedGaugeBlue>
     <app-animated-gauge-blue
       [value]="50"
       [name]="'chart'"

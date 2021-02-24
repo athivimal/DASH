@@ -10,7 +10,7 @@ export class Users {
             email: "abc@gmail.com",
             role: "Admin",
             device: "Ammeter",
-            chart: ['Animated gauge', 'Pictorial chart'],
+            chart: ['Animated gauge', 'Pictorial chart', 'Pictorial slice shape', 'Animated gauge blue'],
             input: "3A"
         },
         {
@@ -23,7 +23,7 @@ export class Users {
             email: "abc@gmail.com",
             role: "User",
             device: "Voltmeter",
-            chart: ['Animated gauge', 'Pictorial chart'],
+            chart: ['Pictorial Slice Shape', 'Animated Gauge Blue'],
             input: "5V"
         },
         {
