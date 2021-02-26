@@ -1,0 +1,32 @@
+<div class="max-width-container pt-5">
+    <div class="row">
+      <!-- <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
+        [options]="options" [name]="name" [bottomLabel]="bottomLabel + 'V'"></rg-gauge-chart> -->
+      <!-- <div class="col-12 col-md-6 col-lg-4"> -->
+        <!-- <app-animated-gauge [value]="50" [name]="'chart'"></app-animated-gauge> -->
+        <!-- <app-pictorial-slice-shape [value]="50" [name]="'chart'"></app-pictorial-slice-shape> -->
+        <!-- <app-pictorial-chart [value]="50" [name]="'chart'"></app-pictorial-chart> -->
+        <!-- <app-animated-gauge-blue [value]="50" [name]="'chart'"></app-animated-gauge-blue> -->
+      <!-- </div> -->
+        
+      <!-- {{mqPackets | json}} -->
+      <!-- <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> -->
+        <!-- <app-animated-gauge [value]="tx.value" [name]="tx.node"></app-animated-gauge> -->
+        <!-- <app-pictorial-slice-shape [value]="tx.value" [name]="tx.node"></app-pictorial-slice-shape> -->
+        <!-- <app-pictorial-chart [value]="tx.value" [name]="tx.node"></app-pictorial-chart> -->
+        <!-- <app-animated-gauge-blue [value]="tx.value" [name]="tx.node"></app-animated-gauge-blue> -->
+        <!-- <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="tx.value" [centralLabel]="centralLabel"
+          [options]="options" [name]="tx.node + ''" [bottomLabel]="tx.value + 'V'"></rg-gauge-chart> -->
+      <!-- </div>
+    </div>
+  </div> -->
+  
+
+    <div class="col-md-2">
+      <app-side-nav (selectedDevice)="routeTabs($event)"></app-side-nav>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

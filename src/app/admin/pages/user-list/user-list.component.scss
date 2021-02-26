@@ -1,0 +1,22 @@
+.user-list-container {
+    padding: 40px 20px;
+    @media only screen and (max-width: 560px) {
+        padding: 40px 10px;
+    }
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+    @media only screen and (max-width: 560px) {
+        max-height: 360px;
+    }
+} 
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+.mat-row {
+    cursor: pointer;
+}

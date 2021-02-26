@@ -10,8 +10,15 @@ export class EspMeterComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  mqPackets = new Array();
+  // mqPackets = [];
+  mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 90, pin:2, count:3}];
+  
   i = 0;
+  espmeterCharts=[];
+  selectedChart:string
+  menuToggle=false;
+  userData: any;
+  selectedUser: any;
 
   public canvasWidth = 300;
   public needleValue = 5;
@@ -36,6 +43,7 @@ export class EspMeterComponent implements OnInit {
   // mosquitto_pub -h broker.hivemq.com -p 1883 -t kt-control -m '1'
 
   constructor(private _mqttService: MqttService) {
+    
     this._mqttService
       .observe("kt-data/#")
       .subscribe((message: IMqttMessage) => {
@@ -77,5 +85,23 @@ export class EspMeterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
+    if (this.selectedUser) {
+      this.espmeterCharts = this.selectedUser.chart;
+    }
+    else {
+      this.userData = JSON.parse(localStorage.getItem('currentUser'));
+      this.espmeterCharts = this.userData.chart;
+    }
+    this.selectedChart=this.espmeterCharts[0];
+  }
+
+  dropdownToggle(chartName){
+    this.selectedChart=chartName ? chartName:this.selectedChart
+    this.menuToggle=!this.menuToggle
+  }
+  onTabChange(event) {
+    this.selectedChart=event.nextId
+  }
 }

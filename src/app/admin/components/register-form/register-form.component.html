@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center flex-column align-items-center mx-0 login-flow">
+    <h2 class="login-header">{{user ? 'Edit' : 'Add'}} user to Krish Tec</h2>
+    <div class="my-2 p-3 p-md-5 login-form-container">
+        <form [formGroup]="registerForm" class="login-form" (ngSubmit)="onFormSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.username.errors }" placeholder="Enter username here" />
+                <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.username.errors.required">Username is required</div>
+                    <div class="text-danger" *ngIf="fval.username.errors.username">Enter valid username address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.name.errors }" placeholder="Enter name here" />
+                <div *ngIf="submitted && fval.name.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.name.errors.required">name is required</div>
+                    <div class="text-danger" *ngIf="fval.name.errors.name">Enter valid username address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contact">Mobile number</label>
+                <input type="contact" formControlName="contact" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.contact.errors }" placeholder="Enter contact number here" />
+                <div *ngIf="submitted && fval.contact.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.contact.errors.required">Contact is required</div>
+                    <div class="text-danger" *ngIf="fval.contact.errors.pattern">Invalid mobile number</div>
+                    <div class="text-danger" *ngIf="!fval.contact.errors.pattern && (fval.contact.errors.minlength || fval.contact.errors.maxlength)">Contact number should have 10 digits</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email number here" />
+                <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.email.errors.required">Email is required</div>
+                    <div class="text-danger" *ngIf="fval.email.errors.email">Enter valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="device">Device</label>
+                <select formControlName="device" class="form-control">
+                    <option value="">Select Device</option>
+                    <option *ngFor="let device of deviceList" [ngValue]="device">{{device}}</option>
+                </select>
+                <div *ngIf="submitted && fval.device.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.device.errors.required">Device has to be selected</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="charts">Charts</label>
+                <div class="form-check form-check-inline" *ngFor="let chart of defaultCharts; index as i" >
+                    <input class="form-check-input" type="checkbox" [checked]=chart.checked [attr.id]="'inlineCheckbox'+i" [value]="chart.value" (change)="onCheckboxChange($event)">
+                    <label class="form-check-label" for="{{'inlineCheckbox'+i}}">{{chart.value}}</label>
+                </div>
+                <div *ngIf="submitted && fval.charts.invalid" class="invalid-feedback d-block">
+                    <div class="text-danger" *ngIf="fval.device.errors.required">Chart type has to be selected</div>
+                    <div class="text-danger" *ngIf="fval.charts.errors.maxlength">Select maximum of 3 chart types</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input">Device input</label>
+                <input type="input" formControlName="input" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.input.errors }" placeholder="Enter device input here" />
+                <div *ngIf="submitted && fval.input.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.input.errors.required">Device Input is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }" placeholder="Enter password here" />
+                <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                    <div class="text-danger" *ngIf="fval.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group d-flex justify-content-center" *ngIf="!page">
+                <button [disabled]="loading" class="primary-btn">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+            </div>
+            <div class="form-group d-flex justify-content-center" *ngIf="page === 'edit'">
+                <button [disabled]="loading" class="primary-btn">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

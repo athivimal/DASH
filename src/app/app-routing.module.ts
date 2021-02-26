@@ -15,9 +15,16 @@ import { EspMeterComponent } from "./esp-meter/esp-meter.component";
 
 import { LoraMapComponent } from "./lora-map/lora-map.component";
 import { UsersComponent } from "./users/users.component";
-import { AddUserComponent } from "./add-user/add-user.component";
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+  },
   {
     path: "",
     component: MqttDashComponent
@@ -26,41 +33,37 @@ const appRoutes: Routes = [
     path: "espdash",
     component: EspDashComponent
   },
-  {
-    path: "espmeter",
-    component: EspMeterComponent
-  },
+  // {
+  //   path: "espmeter",
+  //   component: EspMeterComponent
+  // },
   {
     path: "users",
     component: UsersComponent
   },
   {
-    path: "add-user",
-    component: AddUserComponent
-  }
-  // {
-  //   path: "ciet/home",
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuard]
-  // },
-  // {
-  //   path: "ciet",
-  //   component: LoginComponent
-  // },
-  // {
-  //   path: "",
-  //   component: MqttDashComponent
-  // }
-  // {
-  //   path: "ciet/logger",
-  //   component: LoggerComponent,
-  //   canActivate: [AuthGuard]
-  // }
+    path: "ciet/home",
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "ciet",
+    component: LoginComponent
+  },
+  {
+    path: "",
+    component: MqttDashComponent
+  },
+  {
+    path: "ciet/logger",
+    component: LoggerComponent,
+    canActivate: [AuthGuard]
+  },
 
-  // {
-  //   path: "home",
-  //   component: BioMedComponent
-  // },
+  {
+    path: "home",
+    component: BioMedComponent
+  },
 
   // {
   //   path: "",

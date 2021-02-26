@@ -1,3 +1,5 @@
+import { AddUserComponent } from './add-user/add-user.component';
+import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -39,9 +41,11 @@ import { LoraMapComponent } from "./lora-map/lora-map.component";
 
 import { AgmCoreModule } from "@agm/core";
 import { UsersComponent } from "./users/users.component";
-import { AddUserComponent } from "./add-user/add-user.component";
 
 import { GaugeChartModule } from "angular-gauge-chart";
+import { AmmeterComponent } from './ammeter/ammeter.component';
+import { VoltmeterComponent } from './voltmeter/voltmeter.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // cloud mqtt broker free
 // https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
@@ -85,7 +89,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     BioMedComponent,
     LoraMapComponent,
     UsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    AmmeterComponent,
+    VoltmeterComponent
   ],
   imports: [
     BrowserModule,
@@ -102,10 +108,13 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     NgxGaugeModule,
     GaugeChartModule,
     FormsModule,
+    SharedModule,
+    NgbModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })
   ],
+  exports: [EspMeterComponent, VoltmeterComponent, AmmeterComponent],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [DoveSnackbarComponent]
