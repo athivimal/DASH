@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/observable/of";
 import { Http } from "@angular/http";
-import { Subject } from "rxjs/Subject";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
