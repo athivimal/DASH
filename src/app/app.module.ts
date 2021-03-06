@@ -25,7 +25,6 @@ import { LoginComponent } from "./login/login.component";
 import { DoveSnackbarComponent } from "./dove-snackbar/dove-snackbar.component";
 
 /* http, rjx */
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 
 /* Gauge Plugin */
@@ -46,6 +45,7 @@ import { GaugeChartModule } from "angular-gauge-chart";
 import { AmmeterComponent } from './ammeter/ammeter.component';
 import { VoltmeterComponent } from './voltmeter/voltmeter.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule } from "@angular/http";
 
 // cloud mqtt broker free
 // https://diyprojects.io/8-online-mqtt-brokers-iot-connected-objects-cloud#.XQeVObwzZnI
@@ -62,9 +62,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // // for esp
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: "broker.hivemq.com", // "192.168.1.100",
-   port:8000,
+  port:8000,
   path: "/mqtt",
-  protocol :"ws"//"/ws"
+  protocol : (environment.mqtt.protocol === "wss") ? 'wss': 'ws'
  };
 
 // For loraserver

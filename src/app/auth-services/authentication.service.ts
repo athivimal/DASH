@@ -1,9 +1,6 @@
 import { Users } from './../shared/config/users';
-import { User } from './../models/user';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
  
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -11,7 +8,7 @@ export class AuthenticationService {
   public currentUser: Observable<any>;
   userList: any;
   
-  constructor(private http: HttpClient, public users: Users) {
+  constructor(public users: Users) {
     this.userList = users.userList;
     // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUserSubject = new BehaviorSubject<any>(localStorage.getItem('currentUser'));
