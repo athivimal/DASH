@@ -11,7 +11,7 @@ export class EspMeterComponent implements OnInit {
   incoming;
   duplicate = false;
   mqPackets = [];
-  // mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 90, pin:2, count:3}];
+  //mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 90, pin:2, count:3}];
   
   i = 0;
   espmeterCharts=[];
