@@ -66,6 +66,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   path: "/mqtt",
   protocol : (environment.mqtt.protocol === "wss") ? 'wss': 'ws'
  };
+ console.log(MQTT_SERVICE_OPTIONS);
 
 // For loraserver
 // export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
