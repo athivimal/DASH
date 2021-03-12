@@ -64,7 +64,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: "broker.hivemq.com", // "192.168.1.100",
   port:8000,
   path: "/mqtt",
-  protocol : (environment.mqtt.protocol === "wss") ? 'wss': 'ws'
+  protocol : "ws" //(environment.mqtt.protocol === "wss") ? 'wss': 'ws'
  };
  console.log(MQTT_SERVICE_OPTIONS);
 
