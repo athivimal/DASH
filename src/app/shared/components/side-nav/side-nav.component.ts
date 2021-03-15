@@ -10,13 +10,15 @@ export class SideNavComponent implements OnInit {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
   list=[
-    "Espmeter",
-    "Ammeter",
-    "Voltmeter",
+    "kt-data",
+    "kt-datavim",
+    "kt-datavpm",
+    "kt-datarpm"
   ]
-  @Output() selectedDevice= new EventEmitter() 
+  @Output() selectedDevice = new EventEmitter(); 
   members=[];
   ngOnInit() {
+    this.selectedDevice.emit(this.list[0]);
     this.members=[...this.members,...this.list.slice(0,10)]
   }
   onScroll(event){
@@ -31,6 +33,6 @@ export class SideNavComponent implements OnInit {
   }
   onNavClick(device){
     console.log(device)
-    this.selectedDevice.emit(device)
+    this.selectedDevice.emit(device);
   }
 }
