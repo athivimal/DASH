@@ -15,8 +15,13 @@
         padding: 5px 15px;
         cursor: pointer;
         &:hover{
-            border-left:3px solid #2a82e5;
+            border-left: 3px solid #2a82e5;
             color: #000000;
         }
+    }
+    .active {
+        font-weight: bold;
+        font-size: 18px;
+        border-left: 3px solid #2a82e5;
     }
 }

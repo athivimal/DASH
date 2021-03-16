@@ -16,9 +16,11 @@ export class SideNavComponent implements OnInit {
     "kt-datarpm"
   ]
   @Output() selectedDevice = new EventEmitter(); 
+  selectedIdentifier = '';
   members=[];
   ngOnInit() {
     this.selectedDevice.emit(this.list[0]);
+    this.selectedIdentifier = this.list[0];
     this.members=[...this.members,...this.list.slice(0,10)]
   }
   onScroll(event){
@@ -33,6 +35,7 @@ export class SideNavComponent implements OnInit {
   }
   onNavClick(device){
     console.log(device)
+    this.selectedIdentifier = device;
     this.selectedDevice.emit(device);
   }
 }
