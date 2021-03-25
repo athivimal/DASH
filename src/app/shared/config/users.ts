@@ -14,6 +14,19 @@ export class Users {
             input: "3A"
         },
         {
+            id: "1",
+            username: "Saral",
+            name: 'Krish',
+            password: "saral",
+            company: "Krish tec",
+            contact: "1234567890",
+            email: "abc@gmail.com",
+            role: "Admin",
+            device: "Ammeter",
+            chart: ['Speedometer', 'Tachometer', 'Intake Air Temperature', 'Absolute Barometric Pressure','Battery','Engine Coolant Temperature','Intake Manifold Absolute Pressure','Air Flow Rate','Throttle Position'],
+            input: "3A"
+        },
+        {
             id: "2",
             username: "Veera",
             name: "Veerapandian",

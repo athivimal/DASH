@@ -11,9 +11,15 @@
         font-size: 16px;
         line-height: 24px;
         text-decoration: none;
-        border-left:3px solid #e5e5e5;
-        padding: 5px 15px;
         cursor: pointer;
+        padding: 15px 25px;
+        text-align: center;
+        outline: rgb(144, 145, 247);
+        color: rgb(144, 145, 247);
+        background-color: #ffffff;
+        border: rgb(144, 145, 247);
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
         &:hover{
             border-left: 3px solid #2a82e5;
             color: #000000;
@@ -22,6 +28,6 @@
     .active {
         font-weight: bold;
         font-size: 18px;
-        border-left: 3px solid #2a82e5;
+        border: 3px solid #2a82e5;
     }
 }

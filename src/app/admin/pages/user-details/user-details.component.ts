@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Component({
   selector: 'app-user-details',
@@ -10,10 +11,17 @@ import { Location } from '@angular/common';
 })
 export class UserDetailsComponent implements OnInit {
   selectedUser: any;
-  constructor(private adminService: AdminService, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) { }
+  identifier: any;
+
+  constructor(private adminService: AdminService, private router: Router, private activatedRoute: ActivatedRoute, private location: Location, private utilityService: UtilityService) { }
 
   ngOnInit(): void {
     this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
+  }
+
+  routeTabs(device){
+    this.utilityService.selectedIdentifier.next(device);
+    this.identifier = device;
   }
 
   deleteUser() {
@@ -29,9 +37,9 @@ export class UserDetailsComponent implements OnInit {
       relativeTo: this.activatedRoute
     });
   }
-  routeTabs(device){
-    this.router.navigate([device], {
-      relativeTo: this.activatedRoute
-    })
-  }
+  // routeTabs(device){
+  //   this.router.navigate([device], {
+  //     relativeTo: this.activatedRoute
+  //   })
+  // }
 }

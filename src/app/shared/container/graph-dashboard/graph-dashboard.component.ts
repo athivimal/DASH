@@ -1,6 +1,7 @@
 import { UtilityService } from './../../services/utility.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { IMqttMessage, MqttService } from 'ngx-mqtt';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-graph-dashboard',
@@ -12,8 +13,8 @@ export class GraphDashboardComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  // mqPackets = new Array();
-  mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 90, pin:2, count:3}];
+  //mqPackets = new Array();
+  mqPackets = [{node: '2', value: 30, pin:2, count:3}, {node: '3', value: 80, pin:2, count:3}, {node: '4', value: 15, pin:2, count:3}];
   
   i = 0;
   espmeterCharts=[];
@@ -62,34 +63,35 @@ export class GraphDashboardComponent implements OnInit {
       this.identifier = identity;
       console.log(this.identifier);
     });
-    // this._mqttService
-    //   .observe(this.identifier)
-    //   .subscribe((message: IMqttMessage) => {
-    //     this.message = message.payload.toString();
-    //     console.log(this.message);
-    //     this.incoming = JSON.parse(message.payload.toString());
+    
+    this.utilityService.getMqttData(identity)
+    .subscribe((message: IMqttMessage) => {
+        this.message = message.payload.toString();
+        console.log(this.message);
+        this.incoming = JSON.parse(message.payload.toString());
 
-    //     this.duplicate = false;
+        this.duplicate = false;
 
-    //     if (this.mqPackets.length > 0) {
-    //       for (this.i = 0; this.i < this.mqPackets.length; this.i++) {
-    //         if (this.mqPackets[this.i].node === this.incoming.node) {
-    //           this.mqPackets[this.i].node = this.incoming.node;
-    //           this.mqPackets[this.i].pin = this.incoming.pin;
-    //           this.mqPackets[this.i].value = parseInt(this.incoming.value);
-    //           this.mqPackets[this.i].count += 1;
-    //           this.duplicate = true;
-    //         }
-    //       }
-    //       if (!this.duplicate) {
-    //         this.incoming.count = 1;
-    //         this.mqPackets.push(this.incoming);
-    //       }
-    //     } else {
-    //       this.incoming.count = 1;
-    //       this.mqPackets.push(this.incoming);
-    //     }
-    //   });
+        if (this.mqPackets.length > 0) {
+          for (this.i = 0; this.i < this.mqPackets.length; this.i++) {
+            if (this.mqPackets[this.i].node === this.incoming.node) {
+              this.mqPackets[this.i].node = this.incoming.node;
+              this.mqPackets[this.i].pin = this.incoming.pin;
+              this.mqPackets[this.i].value = parseInt(this.incoming.value);
+              this.mqPackets[this.i].count += 1;
+              this.duplicate = true;
+            }
+          }
+          if (!this.duplicate) {
+            this.incoming.count = 1;
+            this.mqPackets.push(this.incoming);
+          }
+        } else {
+          this.incoming.count = 1;
+          this.mqPackets.push(this.incoming);
+        }
+      });
+
     this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
     if (this.selectedUser) {
       this.espmeterCharts = this.selectedUser.chart;

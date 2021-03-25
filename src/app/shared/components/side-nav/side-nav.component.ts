@@ -11,9 +11,14 @@ export class SideNavComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
   list=[
     "kt-data",
-    "kt-datavim",
-    "kt-datavpm",
-    "kt-datarpm"
+    "kt-data-KL01AW8561-avpm",
+    "kt-data-KL01AW8561-erpm",
+    "kt-data-KL01AW8561-ecTemp",
+    "kt-data-KL01AW8561-airTemp",
+    "kt-data-KL01AW8561-mAbsp",
+    "kt-data-KL01AW8561-AbsBP",
+    "kt-data-KL01AW8561-Aflr",
+    "kt-data-KL01AW8561-Thrp"
   ]
   @Output() selectedDevice = new EventEmitter(); 
   selectedIdentifier = '';
