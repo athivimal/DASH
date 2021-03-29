@@ -45,7 +45,7 @@ export class EspMeterComponent implements OnInit {
   constructor(private _mqttService: MqttService) {
     
     this._mqttService
-      .observe("kt-data/#")
+      .observe("kt-data-KL01AW8561-avpm/#")
       .subscribe((message: IMqttMessage) => {
         this.message = message.payload.toString();
         console.log(this.message);
