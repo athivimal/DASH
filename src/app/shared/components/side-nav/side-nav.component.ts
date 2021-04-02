@@ -20,14 +20,17 @@ export class SideNavComponent implements OnInit {
     "kt-data-KL01AW8561-Aflr",
     "kt-data-KL01AW8561-Thrp"
   ]
+  
   @Output() selectedDevice = new EventEmitter(); 
   selectedIdentifier = '';
   members=[];
+  
   ngOnInit() {
     this.selectedDevice.emit(this.list[0]);
     this.selectedIdentifier = this.list[0];
     this.members=[...this.members,...this.list.slice(0,10)]
   }
+  
   onScroll(event){
     const tableViewHeight = event.target.offsetHeight; 
     const tableScrollHeight = event.target.scrollHeight; 

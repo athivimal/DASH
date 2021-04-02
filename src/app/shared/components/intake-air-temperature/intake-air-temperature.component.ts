@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class IntakeAirTemperatureComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any;
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);
@@ -24,7 +26,7 @@ let iconPath = "M89.50460678,83.8A5.169372780000001,5.169372780000001,0,0,0,84.3
 
 var chart = am4core.create(`chartintakeairtemperature${this.name}`, am4charts.SlicedChart);
 chart.paddingTop = am4core.percent(10);
-var c=20;
+var c = this.value;
 chart.data = [
   {
     "name": "",

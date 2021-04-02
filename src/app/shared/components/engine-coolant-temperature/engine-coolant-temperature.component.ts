@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);
@@ -24,7 +26,7 @@ export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit 
     
     var chart = am4core.create(`chartcoolanttemperature${this.name}`, am4charts.SlicedChart);
     chart.paddingTop = am4core.percent(10);
-    var c=60;
+    var c = this.value;
     chart.data = [
       {
         "name": "",

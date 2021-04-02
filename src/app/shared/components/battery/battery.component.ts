@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class BatteryComponent implements OnInit,AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);
@@ -24,7 +26,7 @@ let iconPath = "M 276.022 39.163 h -22.087 V 20 c 0 -11.028 -8.972 -20 -20 -20 h
 
 var chart = am4core.create(`chartbattery${this.name}`, am4charts.SlicedChart);
 chart.paddingTop = am4core.percent(10);
-var c=75;
+var c=this.value;
 var total=100;
 var colour;
 

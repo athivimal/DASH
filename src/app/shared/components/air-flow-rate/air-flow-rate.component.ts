@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class AirFlowRateComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
     // Create chart
@@ -45,8 +47,7 @@ export class AirFlowRateComponent implements OnInit, AfterViewInit {
     
     // Add hand
     let hand = chart.hands.push(new am4charts.ClockHand());
-    //hand.value = this.value;
-    hand.value = 15;
+    hand.value = this.value;
     hand.pin.disabled = true;
     hand.fill = am4core.color("black");
     hand.stroke = am4core.color("black");

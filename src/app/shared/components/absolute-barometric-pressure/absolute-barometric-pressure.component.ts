@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);
@@ -23,7 +25,7 @@ export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit
 // Create chart instance
 let chart = am4core.create(`chartcylindricalgauge${this.name}`, am4charts.XYChart3D);
 
-var value=19
+var value= this.value;
 var total=100
 
 // Add data
