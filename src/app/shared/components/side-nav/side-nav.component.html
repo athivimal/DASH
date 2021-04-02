@@ -1,5 +1,5 @@
 <div class="side-nav d-none d-md-block" (scroll)="onScroll($event)">
     <ul class="side-nav__menu">
-        <li class="side-nav__menu-items" *ngFor="let member of members"><a class="side-nav__menu-content" [ngClass]="{'active': selectedIdentifier === member}" (click)="onNavClick(member)">{{member}}</a></li>
+        <li class="side-nav__menu-items" *ngFor="let member of members"><a class="btn btn-primary btn-rounded" [ngClass]="{'active': selectedIdentifier === member}" (click)="onNavClick(member)">{{member}}</a></li>
     </ul>
 </div>

@@ -11,6 +11,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class ThrottlePositionComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any;
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")

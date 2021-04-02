@@ -11,10 +11,12 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class SpeedometerComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+  
   ngAfterViewInit()
   {
     // Themes begin
@@ -24,10 +26,8 @@ am4core.useTheme(am4themes_animated);
 let chartMin = 0;
 let chartMax = 250;
 
-
-
 let data = {
-  score: 52.7,
+  score: this.value,
   gradingData: [
     {
       title: "",
@@ -193,10 +193,10 @@ hand.events.on("positionchanged", function(){
   label.fill = am4core.color(matchingGrade.color);
 })
 
-setInterval(function() {
+/* setInterval(function() {
     let value = chartMin + Math.random() * (chartMax - chartMin);
     hand.showValue(value, 1000, am4core.ease.cubicOut);
-}, 2000);
+}, 2000); */
 
 let title = chart.createChild(am4core.Label);
 title.text = "Speedometer"

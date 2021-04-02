@@ -11,10 +11,13 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 export class TachometerComponent implements OnInit, AfterViewInit {
   @Input() value: any;
   @Input() name: any; 
+  
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
+    console.log(this.value)
   }
+  
   ngAfterViewInit()
   {
     // Themes begin
@@ -27,7 +30,7 @@ let chartMax = 6000;
 
 
 let data = {
-  score: 600.1,
+  score: this.value,
   gradingData: [
     {
       title: "",
@@ -188,10 +191,10 @@ hand.events.on("positionchanged", function(){
   label.fill = am4core.color(matchingGrade.color);
 })
 
-setInterval(function() {
+/* setInterval(function() {
     let value = chartMin + Math.random() * (chartMax - chartMin);
     hand.showValue(value, 1000, am4core.ease.cubicOut);
-}, 2000);
+}, 2000); */
 
     let title = chart.createChild(am4core.Label);
     title.text = "Tachometer"
