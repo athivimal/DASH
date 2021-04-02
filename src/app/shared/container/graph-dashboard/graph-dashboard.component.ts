@@ -61,11 +61,7 @@ export class GraphDashboardComponent implements OnInit {
   ngOnInit() {
     this.utilityService.selectedIdentifier.subscribe(identity => {
       this.identifier = identity;
-      console.log(this.identifier);
-      console.log(this.mqPackets);
-    });
-  
-    this.utilityService.getMqttData(this.identifier)
+      this.utilityService.getMqttData(this.identifier)
     .subscribe((message: IMqttMessage) => {
         this.message = message.payload.toString();
         console.log(this.message);
@@ -92,6 +88,10 @@ export class GraphDashboardComponent implements OnInit {
           this.mqPackets.push(this.incoming);
         }
       });
+
+    });
+  
+    
 
     this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
     if (this.selectedUser) {
