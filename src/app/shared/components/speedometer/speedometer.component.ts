@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './speedometer.component.html',
   styleUrls: ['./speedometer.component.scss']
 })
-export class SpeedometerComponent implements OnInit, AfterViewInit {
+export class SpeedometerComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,6 +17,11 @@ export class SpeedometerComponent implements OnInit, AfterViewInit {
     console.log("hello")
   }
   
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
+
   ngAfterViewInit()
   {
     // Themes begin

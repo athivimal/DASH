@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './engine-coolant-temperature.component.html',
   styleUrls: ['./engine-coolant-temperature.component.scss']
 })
-export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit {
+export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,6 +17,11 @@ export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit 
     console.log("hello")
   }
   
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
+
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);

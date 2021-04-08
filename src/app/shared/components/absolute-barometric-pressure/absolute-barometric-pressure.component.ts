@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './absolute-barometric-pressure.component.html',
   styleUrls: ['./absolute-barometric-pressure.component.scss']
 })
-export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit {
+export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit,OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,6 +17,11 @@ export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit
     console.log("hello")
   }
   
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
+
   ngAfterViewInit()
   {
     am4core.useTheme(am4themes_animated);
@@ -66,7 +71,7 @@ valueAxis.renderer.labels.template.adapter.add("text", function(text) {
     return "";
   }
   else {
-    return text + "%";
+    return text + " kpa";
   }
 })
 
@@ -109,7 +114,7 @@ series2.columns.template.strokeWidth = 2;
     title.fontWeight = "600";
 
     let title2 = chart.createChild(am4core.Label);
-    title2.text = `Fuel Capacity: ${String(value)}%`
+    title2.text = `Pressure: ${String(value)} kpa`
     title2.fontSize = 20;
     title2.fill = am4core.color("#390511");
     title2.isMeasured = false;
