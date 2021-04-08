@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './speedometer.component.html',
   styleUrls: ['./speedometer.component.scss']
 })
-export class SpeedometerComponent implements OnInit, AfterViewInit, OnChanges {
+export class SpeedometerComponent implements OnInit, AfterViewInit { //, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,10 +17,10 @@ export class SpeedometerComponent implements OnInit, AfterViewInit, OnChanges {
     console.log("hello")
   }
   
-  ngOnChanges()
-  {
-    this.ngAfterViewInit();
-  }
+  // ngOnChanges()
+  // {
+  //   this.ngAfterViewInit();
+  // }
 
   ngAfterViewInit()
   {

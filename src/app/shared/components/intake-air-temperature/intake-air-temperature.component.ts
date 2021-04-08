@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './intake-air-temperature.component.html',
   styleUrls: ['./intake-air-temperature.component.scss']
 })
-export class IntakeAirTemperatureComponent implements OnInit, AfterViewInit, OnChanges {
+export class IntakeAirTemperatureComponent implements OnInit, AfterViewInit{ //, OnChanges {
   @Input() value: any;
   @Input() name: any;
   
@@ -17,10 +17,10 @@ export class IntakeAirTemperatureComponent implements OnInit, AfterViewInit, OnC
     console.log("hello")
   }
   
-  ngOnChanges()
-  {
-    this.ngAfterViewInit();
-  }
+  // ngOnChanges()
+  // {
+  //   this.ngAfterViewInit();
+  // }
 
   ngAfterViewInit()
   {
