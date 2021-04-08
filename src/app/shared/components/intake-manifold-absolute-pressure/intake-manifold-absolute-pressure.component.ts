@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './intake-manifold-absolute-pressure.component.html',
   styleUrls: ['./intake-manifold-absolute-pressure.component.scss']
 })
-export class IntakeManifoldAbsolutePressureComponent implements OnInit, AfterViewInit, OnChanges {
+export class IntakeManifoldAbsolutePressureComponent implements OnInit, AfterViewInit{//, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,10 +17,10 @@ export class IntakeManifoldAbsolutePressureComponent implements OnInit, AfterVie
     console.log("hello")
   }
   
-  ngOnChanges()
-  {
-    this.ngAfterViewInit();
-  }
+  // ngOnChanges()
+  // {
+  //   this.ngAfterViewInit();
+  // }
 
   ngAfterViewInit()
   {

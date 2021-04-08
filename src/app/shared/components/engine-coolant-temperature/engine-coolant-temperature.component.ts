@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './engine-coolant-temperature.component.html',
   styleUrls: ['./engine-coolant-temperature.component.scss']
 })
-export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit, OnChanges {
+export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit{ //, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,10 +17,10 @@ export class EngineCoolantTemperatureComponent implements OnInit, AfterViewInit,
     console.log("hello")
   }
   
-  ngOnChanges()
-  {
-    this.ngAfterViewInit();
-  }
+  // ngOnChanges()
+  // {
+  //   this.ngAfterViewInit();
+  // }
 
   ngAfterViewInit()
   {
