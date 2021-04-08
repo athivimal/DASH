@@ -13,8 +13,8 @@ export class GraphDashboardComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  mqPackets = new Array();
-  //mqPackets = [{node: '2', value: 15, pin:2, count:3},{node: '3', value: 20, pin:2, count:3}];
+  //mqPackets = new Array();
+  mqPackets = [{node: '2', value: 15, pin:2, count:3}];
   
   i = 0;
   espmeterCharts=[];
@@ -61,11 +61,7 @@ export class GraphDashboardComponent implements OnInit {
   ngOnInit() {
     this.utilityService.selectedIdentifier.subscribe(identity => {
       this.identifier = identity;
-      console.log(this.identifier);
-      console.log(this.mqPackets);
-    });
-  
-    this.utilityService.getMqttData(this.identifier)
+      this.utilityService.getMqttData(this.identifier)
     .subscribe((message: IMqttMessage) => {
         this.message = message.payload.toString();
         console.log(this.message);
@@ -92,6 +88,10 @@ export class GraphDashboardComponent implements OnInit {
           this.mqPackets.push(this.incoming);
         }
       });
+
+    });
+  
+    
 
     this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
     if (this.selectedUser) {

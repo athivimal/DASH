@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -8,13 +8,18 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './throttle-position.component.html',
   styleUrls: ['./throttle-position.component.scss']
 })
-export class ThrottlePositionComponent implements OnInit, AfterViewInit {
+export class ThrottlePositionComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any;
   
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
+  }
+
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
   }
 
   ngAfterViewInit() {
@@ -57,11 +62,12 @@ export class ThrottlePositionComponent implements OnInit, AfterViewInit {
     hand.startWidth = 5;
 
     let title = chart.createChild(am4core.Label);
-    title.text = "Throttle Position"
+    title.text = "Throttle Position: "+String(this.value)
     title.fontSize = 20;
     title.fill = am4core.color("#390511");
     title.isMeasured = false;
-    title.x = am4core.percent(68);
+    title.x = am4core.percent(85);
+    title.y = am4core.percent(20);
     title.horizontalCenter = "right";
     title.fontWeight = "600";
   }

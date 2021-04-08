@@ -1,11 +1,19 @@
 <section class="max-width-container">
     <div class="user-list-container">
         <h3 class="text-center mb-3">Welcome {{userData?.username}} ! You are our Admin and you can able to add new user.</h3>
+        
+        <div class="d-flex justify-content-left mb-3">
+          <button class="primary-btn" (click)="back()">
+            Back
+          </button>
+        </div>
+        
         <div class="d-flex justify-content-end mb-3">
             <button class="primary-btn" (click)="addUser()">
                 Add user
-            </button>
+            </button>    
         </div>
+        
         <div class="example-container mat-elevation-z8">
             <mat-table #table [dataSource]="dataSource" (scroll)="onTableScroll($event)">
           
