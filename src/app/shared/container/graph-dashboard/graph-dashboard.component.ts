@@ -13,8 +13,8 @@ export class GraphDashboardComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  //mqPackets = new Array();
-  mqPackets = [{node: '2', value: 15, pin:2, count:3}];
+  mqPackets = new Array();
+  //mqPackets = [{node: '2', value: 15, pin:2, count:3}];
   
   i = 0;
   espmeterCharts=[];

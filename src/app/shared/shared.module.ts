@@ -20,10 +20,12 @@ import { EngineCoolantTemperatureComponent } from './components/engine-coolant-t
 import { IntakeManifoldAbsolutePressureComponent } from './components/intake-manifold-absolute-pressure/intake-manifold-absolute-pressure.component';
 import { AirFlowRateComponent } from './components/air-flow-rate/air-flow-rate.component';
 import { ThrottlePositionComponent } from './components/throttle-position/throttle-position.component';
+import { IndicatorGaugeComponent } from './components/indicator-gauge/indicator-gauge.component';
+import { TemperatureGaugeComponent } from './components/temperature-gauge/temperature-gauge.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent],
+  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent, IndicatorGaugeComponent, TemperatureGaugeComponent],
   imports: [
     CommonModule, RouterModule
   ],

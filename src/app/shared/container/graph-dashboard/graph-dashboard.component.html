@@ -45,6 +45,14 @@
   <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Thrp'">
     <ng-container *ngTemplateOutlet="ThrottlePosition"></ng-container>
   </ng-container>
+
+  <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-enginetemp/4'">
+    <ng-container *ngTemplateOutlet="TemperatureGauge"></ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-batterylevel/4'">
+    <ng-container *ngTemplateOutlet="IndicatorGauge"></ng-container>
+  </ng-container>
     
     <ng-template #AnimatedGauge>
         <div class="row">
@@ -185,6 +193,26 @@
     </div>
     </div>
   </ng-template>
+
+  <ng-template #TemperatureGauge>
+    <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
+        <app-temperature-gauge [value]="tx.value" [name]="tx.node"></app-temperature-gauge>
+    </div>
+    </div>
+</ng-template>
+
+<ng-template #IndicatorGauge>
+  <div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+      <app-indicator-gauge
+      [value]="tx.value"
+      [name]="tx.node"
+      ></app-indicator-gauge>
+  </div>
+  </div>
+</ng-template>
+
     <!-- <div [ngSwitch]="selectedChart">
     <app-animated-gauge *ngSwitchCase="'Animated Gauge'"[value]="50" [name]="'chart'"></app-animated-gauge>
     <app-pictorial-slice-shape *ngSwitchCase="'Pictorial Slice Shape'" [value]="50" [name]="'chart'"></app-pictorial-slice-shape>

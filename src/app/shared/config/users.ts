@@ -1,3 +1,6 @@
+import { GaugeChart } from "@amcharts/amcharts4/charts";
+import { IndicatorGaugeComponent } from "../components/indicator-gauge/indicator-gauge.component";
+
 export class Users {
     public userList = [
         {
@@ -37,6 +40,19 @@ export class Users {
             role: "User",
             device: "Voltmeter",
             chart: ['Pictorial slice shape', 'Animated gauge blue'],
+            input: "5V"
+        },
+        {
+            id: "3",
+            username: "Joseph",
+            name: "DJ",
+            password: "joseph",
+            company: "moonraft",
+            contact: "1234567890",
+            email: "abc@gmail.com",
+            role: "User",
+            device: "Voltmeter",
+            chart: ['indicator gauge','temperature-gauge'],
             input: "5V"
         },
         {

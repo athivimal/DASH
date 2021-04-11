@@ -18,6 +18,8 @@ export class SideNavComponent implements OnInit {
     "kt-data-KL01AW8561-AbsBP",
     "kt-data-KL01AW8561-Aflr",
     "kt-data-KL01AW8561-Thrp",
+    "kt-data-TN67AM3839-enginetemp/4",
+    "kt-data-TN67AM3839-batterylevel/4"
   ]
   
   @Output() selectedDevice = new EventEmitter(); 
