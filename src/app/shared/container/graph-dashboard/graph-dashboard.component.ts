@@ -63,6 +63,7 @@ export class GraphDashboardComponent implements OnInit {
       this.identifier = identity;
       this.utilityService.getMqttData(this.identifier)
     .subscribe((message: IMqttMessage) => {
+        this.mqPackets = [];
         this.message = message.payload.toString();
         console.log(this.message);
         this.incoming = JSON.parse(message.payload.toString());
