@@ -16,6 +16,8 @@ export class UserListComponent implements OnInit {
   limit: number = 15;
   end: number = this.limit + this.start;
   selectedRowIndex: number = null;
+  route: any;
+  returnUrl: any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private users: Users, private adminService: AdminService) { 
     this.userData = JSON.parse(localStorage.getItem('currentUser'));
@@ -25,7 +27,14 @@ export class UserListComponent implements OnInit {
     this.adminService.setSelectedUser(null);
     this.dataSource = this.users.userList;
     this.dataSource = this.getTableData(this.start, this.end);
+    this.returnUrl = '/';
     this.updateIndex();
+  }
+  
+  back(){
+    this.router.navigate([this.returnUrl], {
+      relativeTo: this.activatedRoute
+    })
   }
 
   addUser() {

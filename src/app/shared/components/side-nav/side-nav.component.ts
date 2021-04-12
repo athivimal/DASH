@@ -10,15 +10,28 @@ export class SideNavComponent implements OnInit {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
   list=[
-    "Espmeter",
-    "Ammeter",
-    "Voltmeter",
+    "kt-data-KL01AW8561-avpm",
+    "kt-data-KL01AW8561-erpm",
+    "kt-data-KL01AW8561-ecTemp",
+    "kt-data-KL01AW8561-airTemp",
+    "kt-data-KL01AW8561-mAbsp",
+    "kt-data-KL01AW8561-AbsBP",
+    "kt-data-KL01AW8561-Aflr",
+    "kt-data-KL01AW8561-Thrp",
+    "kt-data-TN67AM3839-enginetemp/4",
+    "kt-data-TN67AM3839-batterylevel/4"
   ]
-  @Output() selectedDevice= new EventEmitter() 
+  
+  @Output() selectedDevice = new EventEmitter(); 
+  selectedIdentifier = '';
   members=[];
+  
   ngOnInit() {
+    this.selectedDevice.emit(this.list[0]);
+    this.selectedIdentifier = this.list[0];
     this.members=[...this.members,...this.list.slice(0,10)]
   }
+  
   onScroll(event){
     const tableViewHeight = event.target.offsetHeight; 
     const tableScrollHeight = event.target.scrollHeight; 
@@ -31,6 +44,7 @@ export class SideNavComponent implements OnInit {
   }
   onNavClick(device){
     console.log(device)
-    this.selectedDevice.emit(device)
+    this.selectedIdentifier = device;
+    this.selectedDevice.emit(device);
   }
 }

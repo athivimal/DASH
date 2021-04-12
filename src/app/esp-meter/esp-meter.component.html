@@ -27,18 +27,59 @@
       <a>{{ chart }}</a>
     </ng-template>
     <ng-template ngbTabContent>
+     
       <ng-container *ngIf="selectedChart === 'Animated gauge'">
         <ng-container *ngTemplateOutlet="AnimatedGauge"></ng-container>
       </ng-container>
+      
       <ng-container *ngIf="selectedChart === 'Pictorial slice shape'">
         <ng-container *ngTemplateOutlet="PictorialSliceShape"></ng-container>
       </ng-container>
+      
       <ng-container *ngIf="selectedChart === 'Pictorial chart'">
         <ng-container *ngTemplateOutlet="PictorialChart"></ng-container>
       </ng-container>
+      
       <ng-container *ngIf="selectedChart === 'Animated gauge blue'">
         <ng-container *ngTemplateOutlet="AnimatedGaugeBlue"></ng-container>
       </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Speedometer'">
+        <ng-container *ngTemplateOutlet="Speedometer"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Tachometer'">
+        <ng-container *ngTemplateOutlet="Tachometer"></ng-container>
+      </ng-container>
+      
+      <ng-container *ngIf="selectedChart === 'Intake Air Temperature'">
+        <ng-container *ngTemplateOutlet="IntakeAirTemperature"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Battery'">
+        <ng-container *ngTemplateOutlet="Battery"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Absolute Barometric Pressure'">
+        <ng-container *ngTemplateOutlet="AbsoluteBarometricPressure"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Engine Coolant Temperature'">
+        <ng-container *ngTemplateOutlet="EngineCoolantTemperature"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Intake Manifold Absolute Pressure'">
+        <ng-container *ngTemplateOutlet="IntakeManifoldAbsolutePressure"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Air Flow Rate'">
+        <ng-container *ngTemplateOutlet="AirFlowRate"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChart === 'Throttle Position'">
+        <ng-container *ngTemplateOutlet="ThrottlePosition"></ng-container>
+      </ng-container>
+
       <ng-template #AnimatedGauge>
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index"> 
@@ -46,6 +87,7 @@
           </div>
         </div>
       </ng-template>
+      
       <ng-template #PictorialSliceShape>
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
@@ -56,6 +98,7 @@
           </div>
         </div>
       </ng-template>
+      
       <ng-template #PictorialChart>
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
@@ -66,6 +109,7 @@
           </div>
         </div>
       </ng-template>
+      
       <ng-template #AnimatedGaugeBlue>
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
@@ -76,6 +120,106 @@
           </div>
         </div>
       </ng-template>
+      
+      <ng-template #Speedometer>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-speedometer
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-speedometer>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #Tachometer>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-tachometer
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-tachometer>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #IntakeAirTemperature>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-intake-air-temperature
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-intake-air-temperature>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #Battery>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-battery
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-battery>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #AbsoluteBarometricPressure>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-absolute-barometric-pressure
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-absolute-barometric-pressure>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #EngineCoolantTemperature>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-engine-coolant-temperature
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-engine-coolant-temperature>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #IntakeManifoldAbsolutePressure>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-intake-manifold-absolute-pressure
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-intake-manifold-absolute-pressure>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #AirFlowRate>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-air-flow-rate
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-air-flow-rate>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #ThrottlePosition>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+            <app-throttle-position
+              [value]="tx.value"
+              [name]="tx.node"
+            ></app-throttle-position>
+          </div>
+        </div>
+      </ng-template>
+
       <!-- <div [ngSwitch]="selectedChart">
        <app-animated-gauge *ngSwitchCase="'Animated Gauge'"[value]="50" [name]="'chart'"></app-animated-gauge>
         <app-pictorial-slice-shape *ngSwitchCase="'Pictorial Slice Shape'" [value]="50" [name]="'chart'"></app-pictorial-slice-shape>

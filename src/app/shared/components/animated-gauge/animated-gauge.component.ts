@@ -1,5 +1,5 @@
 // import { Component, OnInit } from '@angular/core';
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -14,10 +14,11 @@ export class AnimatedGaugeComponent implements OnInit {
   @Input() name: any; 
   private chart: am4charts.XYChart;
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
   }
+
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
     // Create chart

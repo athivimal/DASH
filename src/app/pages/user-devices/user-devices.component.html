@@ -26,7 +26,8 @@
       <app-side-nav (selectedDevice)="routeTabs($event)"></app-side-nav>
     </div>
     <div class="col-md-10">
-      <router-outlet></router-outlet>
+      <h2>{{identifier}}</h2>
+      <app-graph-dashboard></app-graph-dashboard>
     </div>
   </div>
 </div>
