@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './absolute-barometric-pressure.component.html',
   styleUrls: ['./absolute-barometric-pressure.component.scss']
 })
-export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit { //,OnChanges {
+export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,10 +17,10 @@ export class AbsoluteBarometricPressureComponent implements OnInit,AfterViewInit
     console.log("hello")
   }
   
-/*   ngOnChanges()
+  ngOnChanges()
   {
     this.ngAfterViewInit();
-  } */
+  } 
 
   ngAfterViewInit()
   {
