@@ -20,8 +20,8 @@ export class UserDetailsComponent implements OnInit {
   }
 
   routeTabs(device){
-    this.utilityService.selectedIdentifier.next(device);
-    this.identifier = device;
+    this.utilityService.selectedIdentifier.next(device.identifier);
+    this.identifier = device.type;
   }
 
   deleteUser() {

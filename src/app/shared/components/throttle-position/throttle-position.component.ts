@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './throttle-position.component.html',
   styleUrls: ['./throttle-position.component.scss']
 })
-export class ThrottlePositionComponent implements OnInit, AfterViewInit{ //, OnChanges {
+export class ThrottlePositionComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any;
   
@@ -17,10 +17,10 @@ export class ThrottlePositionComponent implements OnInit, AfterViewInit{ //, OnC
     console.log("hello")
   }
 
-  // ngOnChanges()
-  // {
-  //   this.ngAfterViewInit();
-  // }
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
 
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);

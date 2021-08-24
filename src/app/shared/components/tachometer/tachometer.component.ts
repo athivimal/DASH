@@ -8,20 +8,19 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './tachometer.component.html',
   styleUrls: ['./tachometer.component.scss']
 })
-export class TachometerComponent implements OnInit, AfterViewInit { //, OnChanges {
+export class TachometerComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
     console.log("hello")
-    console.log(this.value)
   }
   
-    // ngOnChanges()
-  // {
-  //   this.ngAfterViewInit();
-  // }
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
 
   ngAfterViewInit()
   {
@@ -31,8 +30,6 @@ am4core.useTheme(am4themes_animated);
 
 let chartMin = 600;
 let chartMax = 6000;
-
-
 
 let data = {
   score: this.value,
@@ -54,7 +51,7 @@ let data = {
       color: "red",
       lowScore: 4200,
       highScore: 6000
-    },
+    }
   ]
 };
 
@@ -172,7 +169,6 @@ label2.verticalCenter = "bottom";
 label2.text = matchingGrade.title.toUpperCase();
 label2.fill = am4core.color(matchingGrade.color);
 
-
 /**
  * Hand
  */
@@ -201,13 +197,13 @@ hand.events.on("positionchanged", function(){
     hand.showValue(value, 1000, am4core.ease.cubicOut);
 }, 2000); */
 
-    let title = chart.createChild(am4core.Label);
-    title.text = "Tachometer"
-    title.fontSize = 20;
-    title.fill = am4core.color("#390511");
-    title.isMeasured = false;
-    title.x = am4core.percent(57);
-    title.horizontalCenter = "right";
-    title.fontWeight = "600";
+let title = chart.createChild(am4core.Label);
+title.text = "Tachometer"
+title.fontSize = 20;
+title.fill = am4core.color("#390511");
+title.isMeasured = false;
+title.x = am4core.percent(57);
+title.horizontalCenter = "right";
+title.fontWeight = "600";
   }
 }

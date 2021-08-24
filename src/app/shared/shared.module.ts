@@ -22,15 +22,16 @@ import { AirFlowRateComponent } from './components/air-flow-rate/air-flow-rate.c
 import { ThrottlePositionComponent } from './components/throttle-position/throttle-position.component';
 import { IndicatorGaugeComponent } from './components/indicator-gauge/indicator-gauge.component';
 import { TemperatureGaugeComponent } from './components/temperature-gauge/temperature-gauge.component';
+import { FuelCapacityComponent } from './components/fuel-capacity/fuel-capacity.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent, IndicatorGaugeComponent, TemperatureGaugeComponent],
+  declarations: [HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent, IndicatorGaugeComponent, TemperatureGaugeComponent, FuelCapacityComponent],
   imports: [
     CommonModule, RouterModule
   ],
   exports: [
-    HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent
+    HeaderComponent, UserCardComponent, AnimatedGaugeComponent, PictorialSliceShapeComponent, PictorialChartComponent, AnimatedGaugeBlueComponent, SideNavComponent, GraphDashboardComponent, SpeedometerComponent, TachometerComponent, IntakeAirTemperatureComponent, AbsoluteBarometricPressureComponent, BatteryComponent, EngineCoolantTemperatureComponent, IntakeManifoldAbsolutePressureComponent, AirFlowRateComponent, ThrottlePositionComponent, FuelCapacityComponent, IndicatorGaugeComponent, TemperatureGaugeComponent
   ],
   providers: [ HeaderList, Users ]
 })

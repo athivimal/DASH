@@ -1,14 +1,14 @@
-import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, OnInit, AfterViewInit, OnChanges, Input, ChangeDetectorRef } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 @Component({
-  selector: 'app-battery',
-  templateUrl: './battery.component.html',
-  styleUrls: ['./battery.component.scss']
+  selector: 'app-fuel-capacity',
+  templateUrl: './fuel-capacity.component.html',
+  styleUrls: ['./fuel-capacity.component.scss']
 })
-export class BatteryComponent implements OnInit, AfterViewInit, OnChanges {
+export class FuelCapacityComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -27,9 +27,9 @@ export class BatteryComponent implements OnInit, AfterViewInit, OnChanges {
     am4core.useTheme(am4themes_animated);
 // Themes end
 
-let iconPath = "M 276.022 39.163 h -22.087 V 20 c 0 -11.028 -8.972 -20 -20 -20 h -97.85 c -11.028 0 -20 8.972 -20 20 v 19.163 H 93.999 c -16.542 0 -30 13.458 -30 30 v 270.858 c 0 16.542 13.458 30 30 30 h 182.023 c 16.542 0 30 -13.458 30 -30 V 69.163 C 306.022 52.621 292.564 39.163 276.022 39.163 Z M 157.719 326.021 l 17.896 -85.014 c 0.145 -0.694 -0.03 -1.417 -0.482 -1.979 c -0.433 -0.523 -1.125 -0.855 -1.825 -0.855 h -31.632 l 70.304 -106.583 l -17.814 80.144 c -0.153 0.695 0.015 1.413 0.462 1.964 c 0.461 0.58 1.127 0.899 1.845 0.899 h 31.748 L 157.719 326.021 Z M 276.022 94.78 H 93.999 V 69.163 h 182.023 V 94.78 L 276.022 94.78 Z";
+let iconPath = "M36.904,22.163v-6.786l-4.897-4.896v4.803h1.636l1.023,1.022v7.026l6.438,4.48V42.31c-0.017,0.472-0.208,2.015-1.891,2.015c-1.729,0-1.991-1.635-2.03-2.029v-10.87h-5.492V3.841C31.691,1.72,29.973,0,27.853,0H7.056C4.934,0,3.218,1.72,3.218,3.841v38.23c0,2.122,1.716,3.842,3.838,3.842h20.797c2.12,0,3.838-1.72,3.838-3.842v-8.406h3.254v8.68l0.005,0.074c0.096,1.434,1.11,4.145,4.265,4.145c2.96,0,4.091-2.508,4.131-4.219V26.643L36.904,22.163z M27.813,16.099H7.096V4.62h20.717V16.099L27.813,16.099z";
 
-var chart = am4core.create(`chartbattery${this.name}`, am4charts.SlicedChart);
+var chart = am4core.create(`chartfuelcapacity${this.name}`, am4charts.SlicedChart);
 chart.paddingTop = am4core.percent(10);
 var c=this.value;
 var total=100;
@@ -132,7 +132,7 @@ function initSlider(){
 }*/
 
 let title = chart.createChild(am4core.Label);
-title.text = "Battery Level: "+String(c);
+title.text = "Fuel Level: "+String(c);
 title.fontSize = 20;
 title.fill = am4core.color("#390511");
 title.isMeasured = false;

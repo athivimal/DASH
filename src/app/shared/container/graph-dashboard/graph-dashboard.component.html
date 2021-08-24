@@ -16,43 +16,51 @@
 
     <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-avpm'">
       <ng-container *ngTemplateOutlet="Speedometer"></ng-container>
-  </ng-container>
+    </ng-container>
   
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-erpm'">
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-erpm'">
       <ng-container *ngTemplateOutlet="Tachometer"></ng-container>
-  </ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-ecTemp'">
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-ecTemp'">
     <ng-container *ngTemplateOutlet="EngineCoolantTemperature"></ng-container>
-  </ng-container>
+    </ng-container>
   
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-airTemp'">
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-airTemp'">
       <ng-container *ngTemplateOutlet="IntakeAirTemperature"></ng-container>
-  </ng-container>
+    </ng-container>
   
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-AbsBP'">
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-AbsBP'">
       <ng-container *ngTemplateOutlet="AbsoluteBarometricPressure"></ng-container>
-  </ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-mAbsp'">
-    <ng-container *ngTemplateOutlet="IntakeManifoldAbsolutePressure"></ng-container>
-  </ng-container>
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-mAbsp'">
+      <ng-container *ngTemplateOutlet="IntakeManifoldAbsolutePressure"></ng-container>
+    </ng-container>
   
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Aflr'">
-    <ng-container *ngTemplateOutlet="AirFlowRate"></ng-container>
-  </ng-container>
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Aflr'">
+      <ng-container *ngTemplateOutlet="AirFlowRate"></ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Thrp'">
-    <ng-container *ngTemplateOutlet="ThrottlePosition"></ng-container>
-  </ng-container>
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Thrp'">
+      <ng-container *ngTemplateOutlet="ThrottlePosition"></ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-enginetemp/4'">
-    <ng-container *ngTemplateOutlet="TemperatureGauge"></ng-container>
-  </ng-container>
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Bat'">
+      <ng-container *ngTemplateOutlet="Battery"></ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-batterylevel/4'">
-    <ng-container *ngTemplateOutlet="IndicatorGauge"></ng-container>
-  </ng-container>
+    <ng-container *ngIf="identifier === 'kt-data-KL01AW8561-Fuel'">
+      <ng-container *ngTemplateOutlet="FuelCapacity"></ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-enginetemp/4'">
+      <ng-container *ngTemplateOutlet="TemperatureGauge"></ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="identifier === 'kt-data-TN67AM3839-batterylevel/4'">
+      <ng-container *ngTemplateOutlet="IndicatorGauge"></ng-container>
+    </ng-container>
     
     <ng-template #AnimatedGauge>
         <div class="row">
@@ -135,6 +143,17 @@
         [value]="tx.value"
         [name]="tx.node"
         ></app-battery>
+    </div>
+    </div>
+  </ng-template>
+
+  <ng-template #FuelCapacity>
+    <div class="row">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let tx of mqPackets; let i = index">
+        <app-fuel-capacity
+        [value]="tx.value"
+        [name]="tx.node"
+        ></app-fuel-capacity>
     </div>
     </div>
   </ng-template>

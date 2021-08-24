@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './air-flow-rate.component.html',
   styleUrls: ['./air-flow-rate.component.scss']
 })
-export class AirFlowRateComponent implements OnInit, AfterViewInit  {//, OnChanges {
+export class AirFlowRateComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() value: any;
   @Input() name: any; 
   
@@ -17,10 +17,10 @@ export class AirFlowRateComponent implements OnInit, AfterViewInit  {//, OnChang
     console.log("hello")
   }
   
-  // ngOnChanges()
-  // {
-  //   this.ngAfterViewInit();
-  // }
+  ngOnChanges()
+  {
+    this.ngAfterViewInit();
+  }
 
   ngAfterViewInit() {
     am4core.useTheme(am4themes_animated);
