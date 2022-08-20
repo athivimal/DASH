@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { AuthService } from "./core/auth.service";
 import { Subscription } from "rxjs/Subscription";
 
 @Component({
@@ -12,7 +11,7 @@ export class AppComponent {
   user: any;
   subscription: Subscription;
 
-  constructor(public auth: AuthService) {
+  constructor() {
     // let sess = localStorage.getItem("currentUser");
     // if (sess) {
     //   // console.log(sess)
@@ -26,9 +25,5 @@ export class AppComponent {
     //   this.user = user;
     //   // console.log(user);
     // });
-  }
-
-  logOut() {
-    this.auth.logout();
   }
 }

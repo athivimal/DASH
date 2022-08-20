@@ -13,8 +13,8 @@ export class GraphDashboardComponent implements OnInit {
   public message: string;
   incoming;
   duplicate = false;
-  mqPackets = new Array();
-  //mqPackets = [{node: '2', value: 15, pin:2, count:3}];
+  // mqPackets = new Array();
+  mqPackets = [{node: '2', value: 15, pin:2, count:3}];
   
   i = 0;
   espmeterCharts=[];
@@ -62,11 +62,11 @@ export class GraphDashboardComponent implements OnInit {
     this.utilityService.selectedIdentifier.subscribe(identity => {
       console.log(identity, "identifier")
       this.identifier = identity;
-      this.mqPackets = [];
+      // this.mqPackets = [];  //This can be uncommented after mqtt integration
       this.utilityService.getMqttData(this.identifier)
     .subscribe((message: IMqttMessage) => {
         this.message = message.payload.toString();
-        console.log(this.message);
+        console.log(this.message, "oidhsiufewhbfiwefnweif");
         this.incoming = JSON.parse(message.payload.toString());
 
         this.duplicate = false;
