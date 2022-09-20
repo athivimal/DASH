@@ -81,34 +81,21 @@ export class GraphDashboardComponent implements OnInit {
               this.duplicate = true;
             }
           }
-          if (!this.duplicate) {
-            this.incoming.count = 1;
-            this.mqPackets.push(this.incoming);
-          }
-        } else {
-          this.incoming.count = 1;
-          this.mqPackets.push(this.incoming);
+          //TODO : Integrste with APIs
+          // if (!this.duplicate) {
+          //   this.incoming.count = 1;
+          //   this.mqPackets.push(this.incoming);
+          // }
+        // } else {
+        //   this.incoming.count = 1;
+        //   this.mqPackets.push(this.incoming);
+        // }
         }
       });
 
     });
   
-    this.selectedUser = JSON.parse(localStorage.getItem('selectedUser'));
-    if (this.selectedUser) {
-      this.espmeterCharts = this.selectedUser.chart;
-    }
-    else {
-      this.userData = JSON.parse(localStorage.getItem('currentUser'));
-      this.espmeterCharts = this.userData.chart;
-    }
     this.selectedChart=this.espmeterCharts[0];
   }
 
-  dropdownToggle(chartName){
-    this.selectedChart=chartName ? chartName:this.selectedChart
-    this.menuToggle=!this.menuToggle
-  }
-  onTabChange(event) {
-    this.selectedChart=event.nextId
-  }
 }

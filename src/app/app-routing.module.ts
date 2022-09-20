@@ -2,22 +2,8 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { NgModule } from "@angular/core";
 // Pages
-import { UsersComponent } from "./users/users.component";
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
-  },
-  {
-    path: "users",
-    component: UsersComponent
-  },
-];
+const appRoutes: Routes = [];
 
 @NgModule({
   imports: [

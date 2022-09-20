@@ -1,4 +1,3 @@
-import { AddUserComponent } from './add-user/add-user.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -21,14 +20,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgxGaugeModule } from "ngx-gauge";
 
 import { MqttModule, IMqttServiceOptions } from "ngx-mqtt";
-import { EspMeterComponent } from "./esp-meter/esp-meter.component";
 
 import { AgmCoreModule } from "@agm/core";
-import { UsersComponent } from "./users/users.component";
 
 import { GaugeChartModule } from "angular-gauge-chart";
-import { AmmeterComponent } from './ammeter/ammeter.component';
-import { VoltmeterComponent } from './voltmeter/voltmeter.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from "@angular/http";
 
@@ -63,12 +58,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EspMeterComponent,
-    UsersComponent,
-    AddUserComponent,
-    AmmeterComponent,
-    VoltmeterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +79,6 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
       enabled: environment.production
     })
   ],
-  exports: [EspMeterComponent, VoltmeterComponent, AmmeterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
